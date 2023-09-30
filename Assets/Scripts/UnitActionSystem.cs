@@ -3,6 +3,8 @@ using System;
 
 public class UnitActionSystem : MonoBehaviour
 {
+    public static UnitActionSystem Instance { get; private set; }
+
     public event EventHandler OnSelectedUnitChange;
 
     [SerializeField] private Unit selectedUnit;
@@ -10,11 +12,23 @@ public class UnitActionSystem : MonoBehaviour
 
     public Unit GetSelectedUnit => selectedUnit;
 
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Debug.LogError("There's more than one UnitActionSystem!" + transform + " - " + Instance);
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
             if (TryHandleUnitSelection()) { return; }
+
             selectedUnit.Move(MouseWorld.GetPosition());
         }
     }
@@ -26,7 +40,7 @@ public class UnitActionSystem : MonoBehaviour
         {
             if (raycastHit.transform.TryGetComponent<Unit>(out Unit unit))
             {
-                selectedUnit = unit;
+                SetSelectedUnit(unit);
                 return true;
             }
         }

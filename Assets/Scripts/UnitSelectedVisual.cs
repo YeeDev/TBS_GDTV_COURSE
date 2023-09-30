@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class UnitSelectedVisual : MonoBehaviour
 {
@@ -8,8 +7,28 @@ public class UnitSelectedVisual : MonoBehaviour
 
     private MeshRenderer meshRenderer;
 
-    private void Awake()
+    private void Awake() => meshRenderer = GetComponent<MeshRenderer>();
+
+    private void Start()
     {
-        meshRenderer = GetComponent<MeshRenderer>();
+        UnitActionSystem.Instance.OnSelectedUnitChange += UnitActionSystem_OnSelectedUnitChange;
+        UpdateVisual();
+    }
+
+    private void UnitActionSystem_OnSelectedUnitChange(object sender, EventArgs empty)
+    {
+        UpdateVisual();
+    }
+
+    private void UpdateVisual()
+    {
+        if (UnitActionSystem.Instance.GetSelectedUnit == unit)
+        {
+            meshRenderer.enabled = true;
+        }
+        else
+        {
+            meshRenderer.enabled = false;
+        }
     }
 }
