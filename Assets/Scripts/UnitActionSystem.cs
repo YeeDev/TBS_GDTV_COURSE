@@ -1,9 +1,14 @@
 using UnityEngine;
+using System;
 
 public class UnitActionSystem : MonoBehaviour
 {
+    public event EventHandler OnSelectedUnitChange;
+
     [SerializeField] private Unit selectedUnit;
     [SerializeField] private LayerMask unitsLayerMask;
+
+    public Unit GetSelectedUnit => selectedUnit;
 
     private void Update()
     {
@@ -27,5 +32,11 @@ public class UnitActionSystem : MonoBehaviour
         }
 
         return false;
+    }
+
+    private void SetSelectedUnit(Unit unit)
+    {
+        selectedUnit = unit;
+        OnSelectedUnitChange?.Invoke(this, EventArgs.Empty);
     }
 }
