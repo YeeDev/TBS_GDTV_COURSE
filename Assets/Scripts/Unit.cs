@@ -15,6 +15,9 @@ public class Unit : MonoBehaviour
             float moveSpeed = 4;
             transform.position += moveDirection * Time.deltaTime * moveSpeed;
 
+            float rotateSpeed = 10f;
+            transform.forward = Vector3.Lerp(transform.forward, moveDirection, Time.deltaTime * rotateSpeed);
+
             animator.SetBool("IsWalking", true);
         }
         else { animator.SetBool("IsWalking", false); }
