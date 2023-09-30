@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
+    [SerializeField] private Animator animator;
+
     private Vector3 targetPosition;
 
     private void Update()
@@ -12,7 +14,10 @@ public class Unit : MonoBehaviour
             Vector3 moveDirection = (targetPosition - transform.position).normalized;
             float moveSpeed = 4;
             transform.position += moveDirection * Time.deltaTime * moveSpeed;
+
+            animator.SetBool("IsWalking", true);
         }
+        else { animator.SetBool("IsWalking", false); }
 
         if (Input.GetMouseButtonDown(0))
         {
