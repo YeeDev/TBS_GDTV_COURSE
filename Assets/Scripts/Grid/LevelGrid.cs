@@ -10,6 +10,9 @@ public class LevelGrid : MonoBehaviour
 
     private GridSystem gridSystem;
 
+    public int GetWidth => gridSystem.GetWidth;
+    public int GetHeigth => gridSystem.GetHeight;
+
     private void Awake()
     {
         if (Instance != null)

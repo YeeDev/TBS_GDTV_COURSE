@@ -9,6 +9,9 @@ public class GridSystem
     private float cellSize;
     private GridObject[,] gridObjectArray;
 
+    public int GetWidth => width;
+    public int GetHeight => height;
+
     public GridSystem(int width, int height, float cellSize)
     {
         this.width = width;
