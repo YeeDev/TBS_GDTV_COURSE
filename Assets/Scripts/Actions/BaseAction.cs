@@ -8,6 +8,8 @@ public abstract class BaseAction : MonoBehaviour
     protected bool isActive;
     protected Action onActionComplete;
 
+    public abstract string GetActionName(); 
+
     protected virtual void Awake()
     {
         unit = GetComponent<Unit>();

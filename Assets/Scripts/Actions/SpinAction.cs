@@ -6,6 +6,8 @@ public class SpinAction : BaseAction
 {
     private float totalSpinAmount;
 
+    public override string GetActionName() => "Spin";
+
     private void Update()
     {
         if (!isActive) { return; }

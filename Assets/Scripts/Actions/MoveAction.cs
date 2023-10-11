@@ -10,6 +10,8 @@ public class MoveAction : BaseAction
 
     private Vector3 targetPosition;
 
+    public override string GetActionName() => "Move";
+
     protected override void Awake()
     {
         base.Awake();
