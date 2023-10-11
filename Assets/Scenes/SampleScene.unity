@@ -1193,7 +1193,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1802066415602372776, guid: 7402afcbc4a0d4a8595e5ca04e73d686, type: 3}
       propertyPath: maxMoveDistance
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2341079480783931752, guid: 7402afcbc4a0d4a8595e5ca04e73d686, type: 3}
       propertyPath: m_Name
@@ -1255,7 +1255,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1802066415602372776, guid: 7402afcbc4a0d4a8595e5ca04e73d686, type: 3}
       propertyPath: maxMoveDistance
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2341079480783931752, guid: 7402afcbc4a0d4a8595e5ca04e73d686, type: 3}
       propertyPath: m_Name
