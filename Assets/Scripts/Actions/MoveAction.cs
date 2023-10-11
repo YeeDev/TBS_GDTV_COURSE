@@ -70,8 +70,6 @@ public class MoveAction : BaseAction
                 if (LevelGrid.Instance.HasAnyUnitOnGridPosition(testGridPosition)) { continue; }
 
                 validGridPositionList.Add(testGridPosition);
-
-                Debug.Log(testGridPosition);
             }
         }
 
