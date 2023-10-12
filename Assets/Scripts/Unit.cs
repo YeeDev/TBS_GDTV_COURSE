@@ -21,6 +21,7 @@ public class Unit : MonoBehaviour
     public BaseAction[] GetBaseActionArray => baseActionArray;
     public int GetActionPoints => actionPoints;
     public bool IsEnemy => isEnemy;
+    public Vector3 GetWorldPosition => transform.position;
 
     public bool TrySpendActionPointsToTakeACertainAction(BaseAction baseAction)
     {
@@ -80,5 +81,10 @@ public class Unit : MonoBehaviour
 
             OnAnyActionPointsChanged?.Invoke(this, EventArgs.Empty);
         }
+    }
+
+    public void Damage()
+    {
+        Debug.Log(transform + "Damaged!");
     }
 }
