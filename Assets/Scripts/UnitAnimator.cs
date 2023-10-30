@@ -12,7 +12,7 @@ public class UnitAnimator : MonoBehaviour
         if (TryGetComponent<MoveAction>(out MoveAction moveAction))
         {
             moveAction.OnStartMoving += MoveAction_OnStartMoving;
-            moveAction.OnStopMoving += MoveAction_OnStartMoving;
+            moveAction.OnStopMoving += MoveAction_OnStopMoving;
         }
 
         if (TryGetComponent<ShootAction>(out ShootAction shootAction))
