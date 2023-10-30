@@ -15,11 +15,14 @@ public class Unit : MonoBehaviour
     private MoveAction moveAction;
     private HealthSystem healthSystem;
     private SpinAction spinAction;
+    private ShootAction shootAction;
     private BaseAction[] baseActionArray;
     private int actionPoints = 2;
 
+    public float GetHealthNormalized => healthSystem.GetHealthNormalized;
     public MoveAction GetMoveAction => moveAction;
     public SpinAction GetSpinAction => spinAction;
+    public ShootAction GetShootAction => shootAction;
     public GridPosition GetGridPosition => gridPosition;
     public BaseAction[] GetBaseActionArray => baseActionArray;
     public int GetActionPoints => actionPoints;
@@ -53,6 +56,7 @@ public class Unit : MonoBehaviour
     {
         moveAction = GetComponent<MoveAction>();
         spinAction = GetComponent<SpinAction>();
+        shootAction = GetComponent<ShootAction>();
         baseActionArray = GetComponents<BaseAction>();
         healthSystem = GetComponent<HealthSystem>();
     }
