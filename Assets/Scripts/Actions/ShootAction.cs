@@ -28,6 +28,7 @@ public class ShootAction : BaseAction
     private bool canShootBullet;
 
     public Unit GetTargetUnit => targetUnit;
+    public int GetMaxShootDistance => maxShootDistance;
 
     private void Update()
     {
