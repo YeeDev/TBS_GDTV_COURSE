@@ -12,22 +12,26 @@ public class Unit : MonoBehaviour
     [SerializeField] private bool isEnemy;
 
     private GridPosition gridPosition;
-    private MoveAction moveAction;
     private HealthSystem healthSystem;
-    private SpinAction spinAction;
-    private ShootAction shootAction;
     private BaseAction[] baseActionArray;
     private int actionPoints = 2;
 
     public float GetHealthNormalized => healthSystem.GetHealthNormalized;
-    public MoveAction GetMoveAction => moveAction;
-    public SpinAction GetSpinAction => spinAction;
-    public ShootAction GetShootAction => shootAction;
     public GridPosition GetGridPosition => gridPosition;
     public BaseAction[] GetBaseActionArray => baseActionArray;
     public int GetActionPoints => actionPoints;
     public bool IsEnemy => isEnemy;
     public Vector3 GetWorldPosition => transform.position;
+
+    public T GetAction<T>() where T : BaseAction
+    {
+        foreach (BaseAction baseAction in baseActionArray)
+        {
+            if (baseAction is T) { return (T)baseAction; }
+        }
+
+        return null;
+    }
 
     public bool TrySpendActionPointsToTakeACertainAction(BaseAction baseAction)
     {
@@ -54,9 +58,6 @@ public class Unit : MonoBehaviour
 
     private void Awake()
     {
-        moveAction = GetComponent<MoveAction>();
-        spinAction = GetComponent<SpinAction>();
-        shootAction = GetComponent<ShootAction>();
         baseActionArray = GetComponents<BaseAction>();
         healthSystem = GetComponent<HealthSystem>();
     }
