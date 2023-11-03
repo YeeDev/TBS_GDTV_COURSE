@@ -11,9 +11,13 @@ public class PathNode
 
     private PathNode cameFromPathNode;
 
-    public int GetGCost => gCost;
-    public int GetHCost => hCost;
-    public int GetFCost => fCost;
+    public int GCost { get => gCost; set => gCost = value; }
+    public int HCost { get => hCost; set => hCost = value; }
+    public int GetFCost => gCost + hCost;
+    public GridPosition GetGridPosition => gridPosition;
+
+    public PathNode CameFromPathNode { get => cameFromPathNode; set => cameFromPathNode = value; }
+    public void ResetCameFromPathNode() => cameFromPathNode = null;
 
     public PathNode(GridPosition gridPosition)
     {

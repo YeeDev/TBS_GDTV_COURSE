@@ -20,8 +20,8 @@ public class PathfindingGridDebugObject : GridDebugObject
     protected override void Update()
     {
         base.Update();
-        gCostTexT.text = pathNode.GetGCost.ToString();
-        hCostTexT.text = pathNode.GetHCost.ToString();
+        gCostTexT.text = pathNode.GCost.ToString();
+        hCostTexT.text = pathNode.HCost.ToString();
         fCostTexT.text = pathNode.GetFCost.ToString();
     }
 }
