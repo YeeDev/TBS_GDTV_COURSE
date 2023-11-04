@@ -8,6 +8,7 @@ public class PathNode
     private int gCost;
     private int hCost;
     private int fCost;
+    private bool isWalkable = true;
 
     private PathNode cameFromPathNode;
 
@@ -15,6 +16,7 @@ public class PathNode
     public int HCost { get => hCost; set => hCost = value; }
     public int GetFCost => gCost + hCost;
     public GridPosition GetGridPosition => gridPosition;
+    public bool IsWalkable { get => isWalkable; set => isWalkable = value; }
 
     public PathNode CameFromPathNode { get => cameFromPathNode; set => cameFromPathNode = value; }
     public void ResetCameFromPathNode() => cameFromPathNode = null;
